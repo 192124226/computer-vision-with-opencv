@@ -1,0 +1,25 @@
+import cv2
+
+# Read an image from file
+img = cv2.imread('C:/Users/Sheetal/Downloads/WhatsApp Image 2023-11-18 at 08.36.29.jpeg')
+
+# Check if the image is loaded successfully
+if img is None:
+    print("Error: Unable to read the image.")
+    exit()
+
+# Display the original image
+cv2.imshow('Original Image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# Convert the image to grayscale
+img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Apply Gaussian blur to the grayscale image
+blur_img = cv2.GaussianBlur(img_gray, (5, 5), 0)  # You can adjust the kernel size (here, (5, 5)) and sigma as needed
+
+# Display the blurred image
+cv2.imshow('Blurred Image', blur_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
